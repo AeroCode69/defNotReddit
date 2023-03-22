@@ -12,7 +12,7 @@ morgan('tiny');
 
 const app = express();
 
-//bodyParser config
+//bodyParser config.
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
