@@ -12,11 +12,24 @@ morgan('tiny');
 
 const app = express();
 
-//bodyParser config
+//bodyParser confign
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(cors());
+
+//Database connection
+var con = mysql.createConnection({
+    host: "localhost",
+    user: "root",
+    password: "",
+    database: "defnotreddit"
+  });
+  
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected to data base!");
+  });
 
 app.get('/', (req, res)=>{
     res.send("Hello World!");
